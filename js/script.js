@@ -27,14 +27,25 @@ $(function() {
 	};
 	
 	// Check for previously selected theme
-	if(typeof(Storage) !== "undefined" && localStorage.getItem("search_theme") ) {
+	if(typeof(Storage) !== "undefined") {
 		
-		// Background image
-		var previously_chose_theme = localStorage.getItem("search_theme"); // Get previous theme name from localStorage		
-		$("main").attr("id", previously_chose_theme); // This will change the background image
+		// Fade in footer
+		$("footer").fadeIn("slow");
+
+		// Background image		
+		if( localStorage.getItem("search_theme") ) {
+
+			var previously_chose_theme = localStorage.getItem("search_theme"); // Get previous theme name from localStorage		
+			$("main").attr("id", previously_chose_theme); // This will change the background image
 		
-		// Audio
-		changeAudio(previously_chose_theme);
+			// Audio
+			changeAudio(previously_chose_theme);
+		} else {
+		
+		// Default theme
+		$("main").attr("id", "yoda");
+		
+	}
 		
 	} else {
 		
