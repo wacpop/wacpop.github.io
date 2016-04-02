@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		
+		<title>WACPOP | Adding silliness to your Google search</title>
+		<link rel="canonical" href="http://" />
+		
+		<link rel="stylesheet" href="css/style.css">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Google webfont -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,500,300,700,900' rel='stylesheet' type='text/css'>
+		
+		<!-- Google Analytics -->
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-59331301-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+	</head>
+	
+	<body>	
+		<header>
+			<a href="/">
+				<h1>WACPOP</h1><span>Adding silliness to <br/>your Google search</span>
+			</a>				
+		</header>
+		<main class="results container">
+			<section class="results searchbar container">
+				<form action="wacpop.com/results.html" id="cse-search-box">
+					<div>
+						<input type="hidden" name="cx" value="partner-pub-6619948946662192:6255821178" />
+						<input type="hidden" name="cof" value="FORID:10" />
+						<input type="hidden" name="ie" value="UTF-8" />
+						<input type="text" name="q" size="55" />
+						<input type="submit" name="sa" value="WacPop it!" />
+					</div>
+				</form>
+				<script type="text/javascript" src="http://www.google.co.uk/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+			</section>
+			<section>
+				<div id="cse-search-results"></div>
+				<script type="text/javascript">
+					var googleSearchIframeName = "cse-search-results";
+				  	var googleSearchFormName = "cse-search-box";
+				  	var googleSearchFrameWidth = 960;
+				  	var googleSearchDomain = "www.google.co.uk";
+				  	var googleSearchPath = "/cse";
+				</script>
+				<script type="text/javascript" src="http://www.google.com/afsonline/show_afs_search.js"></script>
+			</section>
+		</main>
+	</body>
+</html>
