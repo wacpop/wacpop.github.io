@@ -6,12 +6,12 @@
 		<title>WACPOP | Adding silliness to your Google search</title>
 		<link rel="canonical" href="http://www.wacpop.com" />
 		
-		<link rel="stylesheet" href="css/style.min.css">
+		<link rel="stylesheet" href="css/style.css">
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<script src="js/jquery.min.js"></script>
-		<script src="js/script.min.js"></script>
+		<script src="js/script.js"></script>
 		
 		<!-- Google webfont -->
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,500,300,700,900' rel='stylesheet' type='text/css'>
@@ -41,15 +41,15 @@
 						<input type="hidden" name="cof" value="FORID:10" />
 						<input type="hidden" name="ie" value="UTF-8" />
 						<input type="text" name="q" size="55" />
-						<input type="submit" name="sa" value="Google Search" class="do-search" />
-						<input type="submit" value="WacPop It!" class="psuedo-search" />
+						<input type="submit" name="sa" value="WacPop It!" id="submit-that-form" />
 					</div>
 				</form>
 
 				<script type="text/javascript" src="http://www.google.co.uk/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
 
 				<audio controls id="audio">
-					<source src="audio/yoda.mp3" type="audio/mpeg">
+					<source src="audio/yoda.mp3" type="audio/mpeg" class="mp3-audio">
+					<source src="audio/yoda.ogg" type="audio/ogg" class="ogg-audio">
 				</audio>
 			</section>
 		</main>

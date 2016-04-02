@@ -1,33 +1,44 @@
 $(function() {
 	
 	// Play audio before submitting form
-	$(".psuedo-search").on("click", function(e){
+	$("#submit-that-form").on("click", function(e){
 		
 		e.preventDefault();
+		
 		var audio =  document.getElementById("audio");
 		
 		audio.play();
 		
 		audio.onended = function() {
-			$(".do-search").click();
+			$("#cse-search-box").submit();
 		};
 		
 	});
 	
+	// Change audio source src attributes for mp3 and ogg formats
+	function changeAudio(audioFilename){
+		
+		var audioSrcMp3 = "audio/" + audioFilename + ".mp3";
+		var audioSrcOgg = "audio/" + audioFilename + ".ogg";
+		$("#audio source.mp3-audio").attr("src", audioSrcMp3);
+		$("#audio source.ogg-audio").attr("src", audioSrcOgg);
+		
+		document.getElementById("audio").load(); // Need to reload audio for the changes to be played by the browser
+	};
+	
 	// Check for previously selected theme
 	if(typeof(Storage) !== "undefined" && localStorage.getItem("search_theme") ) {
 		
-		var previously_chose_theme = localStorage.getItem("search_theme");
-		var audioSrc = "audio/" + previously_chose_theme + ".mp3";
+		// Background image
+		var previously_chose_theme = localStorage.getItem("search_theme"); // Get previous theme name from localStorage		
+		$("main").attr("id", previously_chose_theme); // This will change the background image
 		
-		$("main").attr("id", previously_chose_theme);
-		
-		$("#audio source").attr("src", audioSrc);
-		
-		document.getElementById("audio").load();
+		// Audio
+		changeAudio(previously_chose_theme);
 		
 	} else {
-	
+		
+		// Default theme
 		$("main").attr("id", "yoda");
 		
 	}
@@ -37,18 +48,15 @@ $(function() {
 		
 		e.preventDefault();
 		
-		$(this).attr("id", "faded");
+		$(this).attr("id", "faded");  // Visually represent chosen theme
 		
-		$(this).siblings().removeAttr("id");
+		$(this).siblings().removeAttr("id");  // Removes any previously set 'faded' id on other buttons
 		
-		var mainID = $(this).attr("class");
-		var audioSrc = "audio/" + mainID + ".mp3";
-		
+		var mainID = $(this).attr("class");  // Get class to use for main id attribute and audio source src attribute
 		$("main").attr("id", mainID);
 		
-		$("#audio source").attr("src", audioSrc);
-		
-		document.getElementById("audio").load();
+		// Audio
+		changeAudio(mainID);
 		
 		// Store theme in local storage
 		

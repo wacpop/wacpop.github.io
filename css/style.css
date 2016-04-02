@@ -158,8 +158,13 @@ header span {
 
 @media screen and (max-width:450px) {
 
-	header img {
+	header h1 {
 		margin: 20px auto 10px auto; 
+	}
+	
+	header span {
+		top: auto;
+		margin-bottom: 10px;
 	}
 	
 	header span br {
