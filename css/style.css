@@ -264,10 +264,6 @@ main input[type="submit"]:hover {
 	background: url('../images/wittertainment.jpg');
 }
 
-audio {
-	display: none;
-}
-
 footer {
 	position: absolute;
 	bottom: 0;
