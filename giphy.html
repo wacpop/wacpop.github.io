@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		
+		<title>WACPOP | Adding silliness to your Google search</title>
+		<link rel="canonical" href="http://www.wacpop.com" />
+		
+		<link rel="stylesheet" href="css/style-giphy.css">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<script>
+		
+		// Modified giphy.js to choose random giphy image - https://gist.github.com/nealrs/28dbfe2c74dfdde26a30
+
+		document.addEventListener('DOMContentLoaded', function () {
+			q = "silliness silly cat animal"; // search query
+	
+			request = new XMLHttpRequest;
+			request.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag='+q, true);
+	
+			request.onload = function() {
+				if (request.status >= 200 && request.status < 400){
+					data = JSON.parse(request.responseText).data.image_url;
+					console.log(data);
+					document.getElementById("giphybg").innerHTML = '.search.container { background-image: url("'+ data +'") }';
+				} else {
+					console.log('reached giphy, but API returned an error');
+				 }
+			};
+
+			request.onerror = function() {
+				console.log('connection error');
+			};
+
+			request.send();
+		});
+		
+		</script>
+		
+		<!-- Giphy BG -->		
+		<style id="giphybg"></style>
+		
+		<!-- Google webfont -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,500,300,700,900' rel='stylesheet' type='text/css'>
+		
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-18387338-4', 'auto');
+			ga('send', 'pageview');
+		</script>
+	</head>
+	
+	<body>	
+		<header>
+			<a href="/">
+				<h1>WACPOP</h1><span>Adding silliness to <br/>your Google search</span>
+			</a>				
+		</header>
+		<main class="search container">
+			<section>
+				<form action="results.html" id="cse-search-box">
+					<div>
+						<input type="hidden" name="cx" value="partner-pub-6619948946662192:6255821178" />
+						<input type="hidden" name="cof" value="FORID:10" />
+						<input type="hidden" name="ie" value="UTF-8" />
+						<input type="text" name="q" size="55" />
+						<input type="submit" name="sa" value="Google Search" id="submit-that-form" />
+					</div>
+				</form>
+
+				<script type="text/javascript" src="http://www.google.co.uk/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
+			</section>
+		</main>
+		<footer>
+			<section id="wacpop"><span>WacPop?<span><strong>W</strong>hat <strong>A</strong> <strong>C</strong>omplete <strong>P</strong>ile <strong>O</strong>f <strong>P</strong>ants</span></span></section>
+			<section id="giphy-logo"><a href="//www.giphy.com"><img src="images/powered-by-giphy.png" alt="Powered by Giphy"></a></section>
+		</footer>
+	</body>
+</html>
