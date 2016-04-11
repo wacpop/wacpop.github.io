@@ -264,6 +264,7 @@ footer section#giphy-logo {
 footer section#giphy-logo {
 	left: auto;
 	right: 20px;
+	padding: 5px 0;
 }
 
 footer #wacpop > span {
