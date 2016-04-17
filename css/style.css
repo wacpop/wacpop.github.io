@@ -389,13 +389,13 @@ main ~ footer section#giphy-logo img {
 	width: 150px;
 }
 
-main ~ footer #wacpop > span {
+main ~ footer #wacpop > a {
 	position: relative;
 	border-bottom: 1px solid #36c1ef;
 	cursor: pointer;
 }
 
-main ~ footer span span {
+main ~ footer a span {
 	display: none;
 	position: absolute;
 	font-size: 80%;
@@ -411,13 +411,13 @@ main ~ footer span span {
 	transition: opacity 0.2s; 
 }
 
-main ~ footer span span strong {
+main ~ footer a span strong {
 	border-bottom: 2px solid;
 }
 
-main ~ footer span:hover span
-main ~ footer span:active span,
-main ~ footer span:focus span {
+main ~ footer a:hover span,
+main ~ footer a:active span,
+main ~ footer a:focus span {
 	display: block;
 }
 
