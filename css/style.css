@@ -379,6 +379,15 @@ main ~ footer section#giphy-logo {
 	background: rgba(255,255,255,0.5);
 }
 
+@media screen and (max-width:500px) {
+
+	main ~ footer section#wacpop,
+	main ~ footer section#giphy-logo {	
+		bottom: 5px;
+	}
+
+}
+
 main ~ footer section#giphy-logo {
 	left: auto;
 	right: 20px;
@@ -386,7 +395,7 @@ main ~ footer section#giphy-logo {
 }
 
 main ~ footer section#giphy-logo img {
-	width: 150px;
+	width: 120px;
 }
 
 main ~ footer #wacpop > a {
