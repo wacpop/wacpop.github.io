@@ -30,32 +30,44 @@ $(function() {
 	if(typeof(Storage) !== "undefined") {
 		
 		// Fade in footer
-		$("footer").fadeIn("slow");
+		$("main footer").fadeIn("slow");
 
 		// Background image		
 		if( localStorage.getItem("search_theme") ) {
 
-			var previously_chose_theme = localStorage.getItem("search_theme"); // Get previous theme name from localStorage		
-			$("main").attr("id", previously_chose_theme); // This will change the background image
+			var previously_chosen_theme = localStorage.getItem("search_theme"); // Get previous theme name from localStorage		
+			$("main").attr("id", previously_chosen_theme); // This will change the background image
 		
 			// Audio
-			changeAudio(previously_chose_theme);
+			changeAudio(previously_chosen_theme);
+			
+			// Hide giphy logo if not previously chosen theme
+			if ( previously_chosen_theme != "giphy" ) {
+				$("#giphy-logo").hide();
+			}
+			
+			// Add faded id to this theme's button and remove from siblings
+			var faded_button = "main footer a." + previously_chosen_theme;
+			$(faded_button).attr("id", "faded");
+			$(faded_button).siblings().removeAttr("id");
+			
+			
 		} else {
 		
 		// Default theme
-		$("main").attr("id", "yoda");
+		$("main").attr("id", "giphy");
 		
-	}
+		}
 		
 	} else {
 		
 		// Default theme
-		$("main").attr("id", "yoda");
+		$("main").attr("id", "giphy");
 		
 	}
 	
 	// Choose theme functionality
-	$("footer a").on("click", function(e){
+	$("main footer a").on("click", function(e){
 		
 		e.preventDefault();
 		
@@ -63,11 +75,17 @@ $(function() {
 		
 		$(this).siblings().removeAttr("id");  // Removes any previously set 'faded' id on other buttons
 		
-		var mainID = $(this).attr("class");  // Get class to use for main id attribute and audio source src attribute
+		var mainID = $(this).attr("class");  // Get class to use for main id attribute and audio source src attribute, and show giphy logo
 		$("main").attr("id", mainID);
 		
 		// Audio
 		changeAudio(mainID);
+		
+		if ( mainID == "giphy" ) {
+			$("#giphy-logo").show();
+		} else { 
+			$("#giphy-logo").hide();
+		}
 		
 		// Store theme in local storage
 		
