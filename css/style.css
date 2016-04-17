@@ -432,10 +432,7 @@ main ~ footer a span strong {
 	border-bottom: 2px solid;
 }
 
-main ~ footer a.hover span,
-main ~ footer a:hover span,
-main ~ footer a:active span,
-main ~ footer a:focus span {
+main ~ footer a.hover span {
 	display: block;
 }
 
