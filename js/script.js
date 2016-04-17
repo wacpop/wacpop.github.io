@@ -3,15 +3,24 @@ $(function() {
 	// Play audio before submitting form
 	$("#submit-that-form").on("click", function(e){
 		
-		e.preventDefault();
+		// Check for local storage
+		if(typeof(Storage) !== "undefined") {
+			
+			e.preventDefault();
+					
+			if( localStorage.getItem("search_theme") == "giphy" ) {
+				$("#cse-search-box").submit(); // Submit form
+			} else {
+				var audio =  document.getElementById("audio");
 		
-		var audio =  document.getElementById("audio");
+				audio.play();
 		
-		audio.play();
+				audio.onended = function() {
+					$("#cse-search-box").submit();
+				};
+			}
 		
-		audio.onended = function() {
-			$("#cse-search-box").submit();
-		};
+		}
 		
 	});
 	
