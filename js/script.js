@@ -97,7 +97,7 @@ $(function() {
 	
 	// Add .hover for WacPop tooltip
 	
-	$("#wacpop span").on("click", function(e){
+	$("#wacpop span").on("tap", function(e){
 		$(this).toggleClass("hover");
 	});
 	
