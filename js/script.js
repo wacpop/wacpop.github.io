@@ -94,4 +94,14 @@ $(function() {
 		}
 	
 	});
+	
+	// Add .hover for WacPop tooltip
+	
+	$("#wacpop a").on("click", function(e){
+		
+		e.preventDefault();
+		$(this).toggleClass("hover");
+		
+	});
+	
 });
