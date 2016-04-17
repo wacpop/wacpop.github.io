@@ -53,7 +53,6 @@ b, strong {
 
 .clear { clear: both }
 
-
 /*
  *		SITE DEISIGN
  */
@@ -357,6 +356,16 @@ main footer .wittertainment {
 	cursor: default;
 }
 
+br.mobile {
+	display: none;
+}
+
+@media screen and (max-width: 500px) {
+	br.mobile {
+		display: inline;
+	}
+}
+
 /* Footer logos and links */
 
 main ~ footer section#wacpop,
@@ -406,8 +415,9 @@ main ~ footer span span strong {
 	border-bottom: 2px solid;
 }
 
-main ~ footer span:hover span,
-main ~ footer span.hover span {
+main ~ footer span:hover span
+main ~ footer span:active span,
+main ~ footer span:focus span {
 	display: block;
 }
 
