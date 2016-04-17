@@ -95,4 +95,10 @@ $(function() {
 	
 	});
 	
+	// Add .hover for WacPop tooltip
+	
+	$("#wacpop span").on("click", function(e){
+		$(this).toggleClass("hover");
+	});
+	
 });

@@ -407,7 +407,7 @@ main ~ footer span span strong {
 }
 
 main ~ footer span:hover span,
-main ~ footer span:focus span {
+main ~ footer span.hover span {
 	display: block;
 }
 
