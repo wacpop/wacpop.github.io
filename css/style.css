@@ -368,6 +368,10 @@ br.mobile {
 
 /* Footer logos and links */
 
+main ~ footer {
+	position: relative;
+}
+
 main ~ footer section#wacpop,
 main ~ footer section#giphy-logo {
 	position: absolute;
@@ -380,6 +384,10 @@ main ~ footer section#giphy-logo {
 }
 
 @media screen and (max-width:500px) {
+
+	main {
+		padding-bottom: 40px;
+	}
 
 	main ~ footer section#wacpop,
 	main ~ footer section#giphy-logo {	
