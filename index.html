@@ -11,9 +11,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<script src="js/jquery.min.js"></script>
-		<script src="js/script.js"></script>
-		
 		<script>
+		
+		// Pop up
+		$(function() {
+			$("#wacpop a").on("click", function(e){
+		
+				e.preventDefault();
+				$(this).toggleClass("hover");
+		
+			});
+		});
+		
 		
 		// Modified giphy.js to choose random giphy image - https://gist.github.com/nealrs/28dbfe2c74dfdde26a30
 
@@ -82,24 +91,11 @@
 						<input type="hidden" name="cof" value="FORID:10" />
 						<input type="hidden" name="ie" value="UTF-8" />
 						<input type="text" name="q" size="55" />
-						<input type="submit" name="sa" value="WacPop It!" id="submit-that-form" />
+						<input type="submit" name="sa" value="Search" id="submit-that-form" />
 					</div>
 				</form>
 
 				<script type="text/javascript" src="http://www.google.co.uk/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
-
-				<audio controls id="audio" hidden="hidden">
-					<source src="audio/yoda.mp3" type="audio/mpeg" class="mp3-audio">
-					<source src="audio/yoda.ogg" type="audio/ogg" class="ogg-audio">
-				</audio>
-				<footer>
-					<h2>Choose theme</h2>
-					<a href="#" class="giphy" id="faded"><span>Giphy</span></a>
-					<a href="#" class="yoda"><span>Yoda</span></a>
-					<a href="#" class="drumpf"><span>Drumpf</span></a><br class="mobile"/>
-					<a href="#" class="daniel"><span>DD!</span></a>
-					<a href="#" class="wittertainment"><span>Witter</span></a>
-				</footer>
 			</section>
 			
 		</main>
