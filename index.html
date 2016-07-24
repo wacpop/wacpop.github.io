@@ -27,20 +27,20 @@
 		// Modified giphy.js to choose random giphy image - https://gist.github.com/nealrs/28dbfe2c74dfdde26a30
 
 		document.addEventListener('DOMContentLoaded', function () {
-			//q = "silliness silly cat animal"; // search query
-	
+			
 			request = new XMLHttpRequest;
 			request.open('GET', 'http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&limit=100', true);
 			
 			// Generate random number between 0-99
 			var random = Math.floor(Math.random()*(100));
-			console.log(random);
 	
 			request.onload = function() {
 				if (request.status >= 200 && request.status < 400){
 					// Random url from 100 giphy trending results
 					bg_url = JSON.parse(request.responseText).data[random].images.original.url;
-					document.getElementById("giphybg").innerHTML = '.search.container { background-image: url("'+ bg_url +'") }';
+					$(function() {
+						$(".search.container").css("background-image", "url('"+ bg_url +"')");
+					});
 					
 					// Add link to the Powered by Giphy logo
 					logo_url = JSON.parse(request.responseText).data[random].url;
@@ -59,9 +59,6 @@
 		});
 		
 		</script>
-		
-		<!-- Giphy BG -->		
-		<style id="giphybg"></style>
 		
 		<!-- Google webfont -->
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,500,300,700,900' rel='stylesheet' type='text/css'>
