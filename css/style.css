@@ -179,6 +179,7 @@ header span {
 /* Homepage */
 
 main {
+	display: block; /* Required for the ever-dismal IE */
 	height: 100%;
 	position: relative;
 	margin-top: -61px;
