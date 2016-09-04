@@ -11,54 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<script src="js/jquery.min.js"></script>
-		<script>
-		
-		// Pop up
-		$(function() {
-			$("#wacpop a").on("click", function(e){
-		
-				e.preventDefault();
-				$(this).toggleClass("hover");
-		
-			});
-		});
-		
-		
-		// Modified giphy.js to choose random giphy image - https://gist.github.com/nealrs/28dbfe2c74dfdde26a30
-
-		document.addEventListener('DOMContentLoaded', function () {
-			
-			request = new XMLHttpRequest;
-			request.open('GET', 'http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&limit=100', true);
-			
-			// Generate random number between 0-99
-			var random = Math.floor(Math.random()*(100));
-	
-			request.onload = function() {
-				if (request.status >= 200 && request.status < 400){
-					// Random url from 100 giphy trending results
-					bg_url = JSON.parse(request.responseText).data[random].images.original.url;
-					$(function() {
-						$(".search.container").css("background-image", "url('"+ bg_url +"')");
-					});
-					
-					// Add link to the Powered by Giphy logo
-					logo_url = JSON.parse(request.responseText).data[random].url;
-					document.getElementById("giphy-url").setAttribute("href", logo_url);
-					
-				} else {
-					console.log('reached giphy, but API returned an error');
-				}
-			};
-
-			request.onerror = function() {
-				console.log('connection error');
-			};
-
-			request.send();
-		});
-		
-		</script>
+		<script src="js/randomBackground.jquery.js"></script>
+		<script src="js/wacpop.js"></script>
 		
 		<!-- Google webfont -->
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,500,300,700,900' rel='stylesheet' type='text/css'>
@@ -99,7 +53,7 @@
 		</script>
 	</head>
 	
-	<body class="loader">	
+	<body class="loader" id="home">	
 		<header>
 			<a href="/">
 				<h1>WACPOP</h1><span>Adding Giphy silliness <br/>to your Google search</span>
@@ -112,14 +66,19 @@
 						<input type="hidden" name="cx" value="partner-pub-6619948946662192:6255821178" />
 						<input type="hidden" name="cof" value="FORID:10" />
 						<input type="hidden" name="ie" value="UTF-8" />
-						<input type="text" name="q" size="55" placeholder="You can has a Google search..." />
+						<input type="text" name="q" size="55" placeholder="Has you a Google search..." />
 						<input type="submit" name="sa" value="Search" id="submit-that-form" />
 					</div>
 				</form>
 
 				<script type="text/javascript" src="http://www.google.co.uk/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
 			</section>
-			
+			<section></section>
+			<section></section>
+			<section></section>
+			<section></section>
+			<section></section>
+			<span class="clear"></span>
 		</main>
 		<footer>
 			<section id="wacpop">

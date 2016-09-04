@@ -51,7 +51,7 @@ b, strong {
 	font-weight: bold;
 }
 
-.clear { clear: both }
+.clear { clear: both; display: block; height: 0; line-height: 0; }
 
 /*
  *		SITE DEISIGN
@@ -180,29 +180,59 @@ header span {
 
 main {
 	display: block; /* Required for the ever-dismal IE */
-	height: 100%;
 	position: relative;
-	margin-top: -61px;
 	background-repeat: no-repeat !important;
 	background-position: center center !important;
 	background-size: cover !important;
 }
 
+#home main {
+	height: 100%;
+	height: calc(100% - 61px);
+}
+
 main.search.container section {
-	margin: auto;
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  	bottom: 0;
-  	height: 50px;
-  	width: 530px;
-  	max-width: 100%;
+	float: left;
+	width: 33.333%;
+	height: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+}
+
+@media screen and (max-width:1200px) {
+	main.search.container section {
+		width: 50%;
+	}
+
+	main.search.container section {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width:660px) {
+	main.search.container section {
+		width: 100%;
+		height: 300px;
+	}
+
+	main.search.container section:first-child {
+		height: 100px;
+	}
+
+	#home main {
+		height: auto;
+	}
 }
 
 main.search.container div {
-	max-width: 80%;
-	margin: 0 auto;
-	position: relative;
+	width: 80%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -40%;
+	margin-top: -16px;
 }
 
 main input {
@@ -249,128 +279,13 @@ main input[type="submit"]:hover {
 	background-color: #ddd;
 }
 
-audio {
-	display: none;
-	position: absolute;
-	left: -9999px;
-	visibility: hidden;
-}
-
-.do-search {
-	display: none;
-}
-
-#yoda {
-	background: url('../images/yoda.jpg');
-}
-
-#drumpf {
-	background: url('../images/drumpf.jpg');
-}
-
-#daniel {
-	background: url('../images/daniel.jpg');
-}
-
-#wittertainment {
-	background: url('../images/wittertainment.jpg');
-}
-
-main footer {
-	position: absolute;
-	bottom: -180px;
-	text-align: center;
-	width: 100%;
-	height: 150px;
-	display: none;
-}
-
-main footer h2 {
-	background: url('../images/choose-theme.png') no-repeat top center;
-	text-indent: -9999px;
-}
-
-main footer a {
-	display: inline-block;
-	height: 60px;
-	width: 60px;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	border-radius: 50%;
-	border: 5px solid #ebebeb;
-	margin: 0 10px;
-	position: relative;
-	overflow: hidden;
-}
-
-main footer a span {
-	display: block;
-	vertical-align: middle;
-	position: absolute;
-	width: 100%;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	margin: auto;
-	opacity: 0;
-	background: rgba(0,0,0,0.5);
-	color: #FFF;
-	font-weight: bold;
-	border-radius: 50%;
-	line-height: 60px;
-	transition: opacity 0.5s;
-}
-
-main footer a:hover span {
-	opacity: 1;
-}
-
-main footer div {
-	display: table;
-	width: 100%;
-}
-
-main footer .giphy {
-	background-image: url('../images/giphy-bg.jpg');
-}
-
-main footer .yoda {
-	background-image: url('../images/yoda.jpg');
-}
-
-main footer .drumpf {
-	background-image: url('../images/drumpf.jpg');
-}
-
-main footer .daniel {
-	background-image: url('../images/daniel.jpg');
-}
-
-main footer .wittertainment {
-	background-image: url('../images/wittertainment.jpg');
-}
-
-#faded {
-	opacity: 0.5;
-	cursor: default;
-}
-
-br.mobile {
-	display: none;
-}
-
-@media screen and (max-width: 500px) {
-	br.mobile {
-		display: inline;
-	}
-}
-
 /* Footer logos and links */
 
 main ~ footer {
-	position: relative;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
 }
 
 main ~ footer section#wacpop,
@@ -384,7 +299,7 @@ main ~ footer section#giphy-logo {
 	background: rgba(255,255,255,0.5);
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:660px) {
 
 	main {
 		padding-bottom: 40px;
@@ -393,6 +308,11 @@ main ~ footer section#giphy-logo {
 	main ~ footer section#wacpop,
 	main ~ footer section#giphy-logo {	
 		bottom: 5px;
+		background: none;
+	}
+
+	main ~ footer {
+		position: relative;
 	}
 
 }
@@ -442,7 +362,6 @@ main ~ footer a.hover span {
 /* Results */
 
 .results.searchbar.container {
-	margin: 61px auto 0px auto;
 	height: 45px;
 	background: #f1f1f1;
 	padding-top: 12px;
