@@ -18,8 +18,8 @@ $(function() {
 	// Array to store the giphy images
 	var giphy_images = [];
 
-	// Generate random number between 0-99
-	var random = Math.floor(Math.random()*(100));
+	// Generate random number between 0-49
+	var random = Math.floor(Math.random()*(50));
 
 	request.onload = function() {
 		if (request.status >= 200 && request.status < 400){
