@@ -13,7 +13,7 @@ $(function() {
 	// Modified giphy.js to choose random giphy image - https://gist.github.com/nealrs/28dbfe2c74dfdde26a30
 
 	request = new XMLHttpRequest;
-	request.open('GET', 'http://api.giphy.com/v1/gifs/trending?api_key=DW8ssTaVjWpcUbbdajF7Fv8yTpt4xjIT&limit=100', true);
+	request.open('GET', '//api.giphy.com/v1/gifs/trending?api_key=DW8ssTaVjWpcUbbdajF7Fv8yTpt4xjIT&limit=100', true);
 	
 	// Array to store the giphy images
 	var giphy_images = [];
